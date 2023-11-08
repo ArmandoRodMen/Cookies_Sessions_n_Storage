@@ -21,7 +21,6 @@ router.post("/signup", async (req, res) => {
         
         // Redirige al usuario a la ruta /profile/:idUser
         res.redirect(redirectUrl);
-        console.log(redirectUrl);
         } catch (error) {
         res.status(500).json({ error });
         }

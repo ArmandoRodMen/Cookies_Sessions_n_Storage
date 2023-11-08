@@ -24,10 +24,12 @@ router.get("/cart/:idCart", async (req, res) => {
 });
 
 router.get("/signup", (req, res) => {
+  console.log("Desde signup ",req.session.user);
   res.render("signup");
 });
 
 router.get("/login", (req, res) => {
+  console.log("Desde login ",req.session.user);
   res.render("login");
 });
 
@@ -36,6 +38,7 @@ router.get("/profile/:idUser", async (req, res) => {
   const user = await usersManager.findById(idUser);
   const products = await productsManager.findAll();
   const { first_name, last_name, username } = user;
+  console.log(req.session.user);
   res.render("profile", { first_name, last_name, username, products });
 });
 
